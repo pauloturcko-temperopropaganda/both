@@ -6,4 +6,4 @@ export const Footer = () => {
       <p>Footer</p>
     </FooterWrapper>
   );
-}
+};

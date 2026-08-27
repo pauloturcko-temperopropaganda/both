@@ -6,4 +6,4 @@ export const Vereador = () => {
       <h2>Seção 3</h2>
     </SectionWrapper>
   );
-}
+};

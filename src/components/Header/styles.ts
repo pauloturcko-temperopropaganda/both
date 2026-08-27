@@ -17,7 +17,7 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   gap: 28px;
-  background-color: ${({ theme }) => theme.colors.green};
+  background-color: ${({ theme }) => theme.colors.greenAlt};
   border-radius: 999px;
   padding: 14px 26px;
 `;
