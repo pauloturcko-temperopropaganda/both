@@ -1,9 +1,9 @@
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { SectionOne } from "./sections/SectionOne";
-import { SectionTwo } from "./sections/SectionTwo";
-import { SectionThree } from "./sections/SectionThree";
-import { SectionFour } from "./sections/SectionFour";
+import { Banner } from "./sections/Banner";
+import { Trajetoria } from "./sections/Trajetoria";
+import { Vereador } from "./sections/Vereador";
+import { Representante } from "./sections/Representante";
 
 function App() {
   return (
@@ -11,10 +11,10 @@ function App() {
       <Header />
 
       <main>
-        <SectionOne />
-        <SectionTwo />
-        <SectionThree />
-        <SectionFour />
+        <Banner />
+        <Trajetoria />
+        <Vereador />
+        <Representante />
       </main>
 
       <Footer />

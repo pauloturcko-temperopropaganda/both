@@ -1,6 +1,6 @@
 import { SectionWrapper } from "../styles";
 
-export function SectionTwo() {
+export const Trajetoria = () => {
   return (
     <SectionWrapper>
       <h2>Seção 2</h2>

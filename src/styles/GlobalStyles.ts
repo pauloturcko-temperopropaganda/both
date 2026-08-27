@@ -27,10 +27,9 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-    color: #333;
-    background-color: #fff;
+    font-family: ${({ theme }) => theme.fonts.basicSans.family};
+    color: ${({ theme }) => theme.colors.blue};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 
   /* Reset de tipografia */

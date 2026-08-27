@@ -1,6 +1,6 @@
 import { FooterWrapper } from "./styles";
 
-export function Footer() {
+export const Footer = () => {
   return (
     <FooterWrapper>
       <p>Footer</p>
