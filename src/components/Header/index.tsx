@@ -1,12 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import {
-  HeaderWrapper,
-  Nav,
-  NavLink,
-  SocialLink,
-  SocialLinks,
-} from "./styles";
+import { HeaderWrapper, Nav, NavLink, SocialLink, SocialLinks } from "./styles";
 
 export const Header = () => {
   return (

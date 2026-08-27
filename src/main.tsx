@@ -10,5 +10,5 @@ createRoot(document.getElementById("root")!).render(
     <Fonts />
     <GlobalStyles />
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
 );

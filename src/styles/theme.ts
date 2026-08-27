@@ -9,6 +9,11 @@ export const theme = {
   spacing: {
     containerX: "250px",
   },
+  breakpoints: {
+    tablet: "1024px",
+    mobile: "640px",
+    small: "380px",
+  },
   fonts: {
     basicSans: {
       family: "'Basic Sans', sans-serif",
