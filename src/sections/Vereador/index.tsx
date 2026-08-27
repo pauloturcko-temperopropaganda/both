@@ -1,9 +1,9 @@
 import { SectionWrapper } from "../styles";
 
-export function SectionFour() {
+export const Vereador = () => {
   return (
     <SectionWrapper>
-      <h2>Seção 4</h2>
+      <h2>Seção 3</h2>
     </SectionWrapper>
   );
 }
