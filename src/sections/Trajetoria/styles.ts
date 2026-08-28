@@ -4,17 +4,21 @@ export const TrajetoriaWrapper = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.green};
   padding: 90px ${({ theme }) => theme.spacing.containerX};
+  scroll-margin-top: 110px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 72px 56px;
+    scroll-margin-top: 100px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 56px 24px;
+    scroll-margin-top: 70px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     padding: 40px 16px;
+    scroll-margin-top: 60px;
   }
 `;
 
@@ -31,7 +35,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const Title = styled.h2`
   font-size: 64px;
   line-height: 1;
   color: ${({ theme }) => theme.colors.background};

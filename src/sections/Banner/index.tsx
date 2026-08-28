@@ -1,4 +1,5 @@
 import background from "../../assets/banner/background.webp";
+import bannerMobile from "../../assets/banner/banner_mobile.webp";
 import joaoRodriguesLogo from "../../assets/banner/joao_rodrigues_logo.svg";
 import logoPartido from "../../assets/banner/logo_partido.svg";
 import marcosBoth from "../../assets/banner/marcos_both.webp";
@@ -10,35 +11,50 @@ import {
   BottomLeft,
   BottomRight,
   LogoBlock,
+  MobileBannerImg,
   PhotoImg,
   TextBlock,
+  VisuallyHidden,
 } from "./styles";
 
 export const Banner = () => {
   return (
-    <BannerWrapper $bg={background}>
-      <TextBlock
-        src={meioOeste}
-        alt="Por todo o Meio-Oeste, por toda Santa Catarina"
-      />
-      <LogoBlock
-        src={marcosBothLogo}
-        alt="15115 - Marcos Both, Deputado Estadual"
-      />
-      <PhotoImg src={marcosBoth} alt="Marcos Both" />
+    <>
+      <VisuallyHidden>
+        Marcos Both 15115 - Deputado Estadual pelo Meio-Oeste de Santa
+        Catarina
+      </VisuallyHidden>
 
-      <BottomLeft
-        src={propagandaEleitoral}
-        alt="Propaganda eleitoral | CNPJ Candidato: 68.461.713/0001-96"
-      />
-
-      <BottomRight>
-        <img
-          src={joaoRodriguesLogo}
-          alt="João Rodrigues 55 - Governador, Chiodini"
+      <BannerWrapper $bg={background}>
+        <TextBlock
+          src={meioOeste}
+          alt="Por todo o Meio-Oeste, por toda Santa Catarina"
         />
-        <img src={logoPartido} alt="MDB Santa Catarina" />
-      </BottomRight>
-    </BannerWrapper>
+        <LogoBlock
+          src={marcosBothLogo}
+          alt="15115 - Marcos Both, Deputado Estadual"
+        />
+        <PhotoImg src={marcosBoth} alt="Marcos Both" fetchPriority="high" />
+
+        <BottomLeft
+          src={propagandaEleitoral}
+          alt="Propaganda eleitoral | CNPJ Candidato: 68.461.713/0001-96"
+        />
+
+        <BottomRight>
+          <img
+            src={joaoRodriguesLogo}
+            alt="João Rodrigues 55 - Governador, Chiodini"
+          />
+          <img src={logoPartido} alt="MDB Santa Catarina" />
+        </BottomRight>
+      </BannerWrapper>
+
+      <MobileBannerImg
+        src={bannerMobile}
+        alt="15115 - Marcos Both, Deputado Estadual - Por todo o Meio-Oeste, por toda Santa Catarina"
+        fetchPriority="high"
+      />
+    </>
   );
 };

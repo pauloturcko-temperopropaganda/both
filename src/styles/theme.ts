@@ -32,7 +32,6 @@ export const theme = {
       bold5700: "'TuskerGrotesk 5700Bold', sans-serif",
       super5800: "'TuskerGrotesk 5800Super', sans-serif",
       bold6700: "'TuskerGrotesk 6700Bold', sans-serif",
-      bold8700: "'TuskerGrotesk 8700Bold', sans-serif",
     },
   },
 } as const;

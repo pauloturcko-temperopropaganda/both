@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { theme } from "../../styles/theme";
+import seloVotado from "../../assets/selo_votado.svg";
 import {
   CarouselPhoto,
   CarouselSection,
@@ -13,8 +14,10 @@ import {
   Photo,
   PhotoGridBreakout,
   PhotoRow,
+  Selo,
   Title,
   TitleLetter,
+  TitleRow,
   VereadorWrapper,
 } from "./styles";
 
@@ -75,6 +78,8 @@ export const Vereador = () => {
   const [carouselHovered, setCarouselHovered] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [lightboxVisible, setLightboxVisible] = useState(false);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!lightboxSrc) return;
@@ -82,21 +87,48 @@ export const Vereador = () => {
     return () => cancelAnimationFrame(raf);
   }, [lightboxSrc]);
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setLightboxVisible(false);
-    window.setTimeout(() => setLightboxSrc(null), LIGHTBOX_TRANSITION_MS);
+    window.setTimeout(() => {
+      setLightboxSrc(null);
+      lastFocusedRef.current?.focus();
+    }, LIGHTBOX_TRANSITION_MS);
+  }, []);
+
+  const openLightbox = (src: string, trigger: HTMLElement) => {
+    lastFocusedRef.current = trigger;
+    setLightboxSrc(src);
   };
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    lightboxRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxSrc, closeLightbox]);
 
   return (
     <VereadorWrapper>
       <Content>
-        <Title>
-          {titleLetters.map(({ char, family }, index) => (
-            <TitleLetter key={index} $family={theme.fonts.tusker[family]}>
-              {char}
-            </TitleLetter>
-          ))}
-        </Title>
+        <TitleRow>
+          <Title>
+            {titleLetters.map(({ char, family }, index) => (
+              <TitleLetter key={index} $family={theme.fonts.tusker[family]}>
+                {char}
+              </TitleLetter>
+            ))}
+          </Title>
+          <Selo
+            src={seloVotado}
+            alt="O vereador mais votado em 2024"
+            loading="lazy"
+            decoding="async"
+          />
+        </TitleRow>
 
         <InfoBox>
           <List>
@@ -116,7 +148,13 @@ export const Vereador = () => {
           {photoRows.map((row, rowIndex) => (
             <PhotoRow key={rowIndex}>
               {row.map((src) => (
-                <Photo key={src} src={src} alt="" />
+                <Photo
+                  key={src}
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               ))}
             </PhotoRow>
           ))}
@@ -132,7 +170,20 @@ export const Vereador = () => {
                 key={`${src}-${index}`}
                 src={src}
                 alt=""
-                onClick={() => setLightboxSrc(src)}
+                loading="lazy"
+                decoding="async"
+                role="button"
+                tabIndex={0}
+                aria-label="Ampliar foto"
+                onClick={(event) =>
+                  openLightbox(src, event.currentTarget)
+                }
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openLightbox(src, event.currentTarget);
+                  }
+                }}
               />
             ))}
           </CarouselTrack>
@@ -140,7 +191,15 @@ export const Vereador = () => {
       </Content>
 
       {lightboxSrc && (
-        <LightboxOverlay $visible={lightboxVisible} onClick={closeLightbox}>
+        <LightboxOverlay
+          ref={lightboxRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Foto ampliada"
+          tabIndex={-1}
+          $visible={lightboxVisible}
+          onClick={closeLightbox}
+        >
           <LightboxImage
             $visible={lightboxVisible}
             src={lightboxSrc}

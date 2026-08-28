@@ -10,6 +10,32 @@ export const BannerWrapper = styled.section<{ $bg: string }>`
   background-size: cover;
   background-position: top center;
   overflow: hidden;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
+`;
+
+export const VisuallyHidden = styled.h1`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+`;
+
+export const MobileBannerImg = styled.img`
+  display: none;
+  width: 100%;
+  height: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const TextBlock = styled.img`

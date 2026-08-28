@@ -89,11 +89,10 @@ export const Representante = () => {
       );
       const nextIndex =
         ((currentIndex === -1 ? 0 : currentIndex) + 1) % children.length;
-      children[nextIndex].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
+      const target = children[nextIndex];
+      const targetLeft =
+        target.offsetLeft - (row.clientWidth - target.offsetWidth) / 2;
+      row.scrollTo({ left: targetLeft, behavior: "smooth" });
     };
 
     const syncInterval = (isMobile: boolean) => {
@@ -117,7 +116,7 @@ export const Representante = () => {
   }, []);
 
   return (
-    <RepresentanteWrapper>
+    <RepresentanteWrapper id="proposta">
       <Content>
         <Title>
           {titleLines.map((line, lineIndex) => (
@@ -174,7 +173,13 @@ export const Representante = () => {
 
         <PhotoRow ref={photoRowRef}>
           {photos.map((src) => (
-            <Photo key={src} src={src} alt="" />
+            <Photo
+              key={src}
+              src={src}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
           ))}
         </PhotoRow>
       </Content>
