@@ -21,4 +21,10 @@ export default tseslint.config(
       globals: globals.browser,
     },
   },
+  {
+    files: ["src/styles/styled.d.ts"],
+    rules: {
+      "@typescript-eslint/no-empty-object-type": "off",
+    },
+  },
 );

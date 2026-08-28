@@ -16,7 +16,7 @@ export const theme = {
   },
   fonts: {
     basicSans: {
-      family: "'Basic Sans', sans-serif",
+      family: "'Basic', sans-serif",
       weights: {
         regular: 400,
         semiBold: 600,

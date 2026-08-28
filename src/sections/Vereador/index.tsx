@@ -18,9 +18,6 @@ import {
   VereadorWrapper,
 } from "./styles";
 
-// Matches the transition durations on LightboxOverlay/LightboxImage — the
-// element stays mounted this long after closing so the fade/scale-out can
-// actually play instead of the lightbox just vanishing.
 const LIGHTBOX_TRANSITION_MS = 220;
 
 const photoModules = import.meta.glob("../../assets/grid-photos/*.webp", {
@@ -38,13 +35,8 @@ const photoRows = [
   photos.slice(FIRST_ROW_COUNT),
 ];
 
-// Doubled so the marquee track can loop seamlessly: animating the doubled
-// track from translateX(0) to translateX(-50%) always ends on an identical
-// frame to the start.
 const carouselPhotos = [...photos, ...photos];
 
-// Each letter uses a different Tusker Grotesk cut on purpose (per design) —
-// tweak the `family` per index below to fine-tune the look.
 const titleLetters: {
   char: string;
   family: keyof typeof theme.fonts.tusker;
@@ -84,8 +76,6 @@ export const Vereador = () => {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [lightboxVisible, setLightboxVisible] = useState(false);
 
-  // Flips true on the frame after mount so the opacity/scale transition on
-  // LightboxOverlay/LightboxImage actually has a "from" state to animate out of.
   useEffect(() => {
     if (!lightboxSrc) return;
     const raf = requestAnimationFrame(() => setLightboxVisible(true));
@@ -94,8 +84,6 @@ export const Vereador = () => {
 
   const closeLightbox = () => {
     setLightboxVisible(false);
-    // Keep the image mounted long enough for the fade/scale-out to play
-    // instead of just vanishing.
     window.setTimeout(() => setLightboxSrc(null), LIGHTBOX_TRANSITION_MS);
   };
 

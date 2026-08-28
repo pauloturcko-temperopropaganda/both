@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// Banner is a fixed-aspect-ratio canvas (1920 / 966) that scales fluidly,
-// so every offset/size here is a % of that canvas instead of the theme's
-// fixed containerX — that keeps the layered art aligned at any width.
 const marginX = "13.02%";
 
 export const BannerWrapper = styled.section<{ $bg: string }>`
@@ -54,8 +51,6 @@ export const BottomRight = styled.div`
   position: absolute;
   right: ${marginX};
   bottom: 4.5%;
-  /* Explicit width so the % below resolve against a definite box instead
-     of the shrink-to-fit width an absolutely-positioned div would otherwise get. */
   width: 12.81%;
   display: flex;
   align-items: center;

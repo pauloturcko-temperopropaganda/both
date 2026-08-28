@@ -7,18 +7,12 @@ export const HeaderWrapper = styled.header`
   right: 0;
   z-index: 1000;
   width: 100%;
-  /* Top is 0 so the pill sits flush against the viewport edge — no gap. */
   padding: 0 ${({ theme }) => theme.spacing.containerX} 32px;
   display: flex;
   justify-content: flex-end;
   background-color: transparent;
-  /* This wrapper spans the full viewport width for positioning, but only
-     Nav should actually be clickable — otherwise its empty transparent
-     area silently swallows clicks meant for whatever sits underneath it. */
   pointer-events: none;
 
-  /* Below tablet the pill becomes a centered "dock" (like a phone camera
-     dock) instead of sitting pinned in the corner. */
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: center;
   }
@@ -33,7 +27,6 @@ export const Nav = styled.nav`
   align-items: center;
   gap: 28px;
   background-color: ${({ theme }) => theme.colors.greenAlt};
-  /* Flush/square on the left, rounded on the right. */
   border-radius: 0 0 0.75rem 0.75rem;
   padding: 0.825rem 2rem;
   pointer-events: auto;
@@ -78,13 +71,6 @@ export const SocialLink = styled.a`
   flex-shrink: 0;
   color: ${({ theme }) => theme.colors.white};
 
-  /* GlobalStyles' reset puts "max-width: 100%" on every svg. Nested this
-     deep in flex containers (Nav > SocialLinks > SocialLink), that percentage
-     has nothing definite to resolve against and collapses to 0 — the icon
-     disappears, and because FontAwesome's SVG has overflow: visible, the
-     underlying <path> still paints (and stays clickable) at its raw viewBox
-     size well outside the 0×18 box, silently swallowing clicks aimed at
-     whatever happens to sit underneath. max-width: none overrides that. */
   svg {
     width: 18px;
     height: 18px;
