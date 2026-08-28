@@ -173,13 +173,7 @@ export const Representante = () => {
 
         <PhotoRow ref={photoRowRef}>
           {photos.map((src) => (
-            <Photo
-              key={src}
-              src={src}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
+            <Photo key={src} src={src} alt="" loading="lazy" decoding="async" />
           ))}
         </PhotoRow>
       </Content>

@@ -28,17 +28,31 @@ const photoModules = import.meta.glob("../../assets/grid-photos/*.webp", {
   import: "default",
 }) as Record<string, string>;
 
-const photos = Object.keys(photoModules)
-  .sort()
-  .map((key) => photoModules[key]);
+// Ajuste o enquadramento de uma foto específica do grid aqui, pelo nome do
+// arquivo. Valores menores que "50%" deslocam a imagem para baixo dentro do
+// quadro (mostram mais do topo da foto); valores maiores fazem o oposto.
+const PHOTO_OBJECT_POSITION: Record<string, string> = {
+  "07.webp": "center 35%",
+  "12.webp": "center 17.5%",
+};
 
-const FIRST_ROW_COUNT = Math.ceil(photos.length / 2);
+const photoEntries = Object.keys(photoModules)
+  .sort()
+  .map((key) => ({
+    src: photoModules[key],
+    file: key.split("/").pop() as string,
+  }));
+
+const photos = photoEntries.map((entry) => entry.src);
+
+const FIRST_ROW_COUNT = Math.ceil(photoEntries.length / 2);
 const photoRows = [
-  photos.slice(0, FIRST_ROW_COUNT),
-  photos.slice(FIRST_ROW_COUNT),
+  photoEntries.slice(0, FIRST_ROW_COUNT),
+  photoEntries.slice(FIRST_ROW_COUNT),
 ];
 
 const carouselPhotos = [...photos, ...photos];
+console.log(carouselPhotos);
 
 const titleLetters: {
   char: string;
@@ -147,13 +161,18 @@ export const Vereador = () => {
         <PhotoGridBreakout>
           {photoRows.map((row, rowIndex) => (
             <PhotoRow key={rowIndex}>
-              {row.map((src) => (
+              {row.map(({ src, file }) => (
                 <Photo
                   key={src}
                   src={src}
                   alt=""
                   loading="lazy"
                   decoding="async"
+                  style={
+                    PHOTO_OBJECT_POSITION[file]
+                      ? { objectPosition: PHOTO_OBJECT_POSITION[file] }
+                      : undefined
+                  }
                 />
               ))}
             </PhotoRow>
@@ -175,9 +194,7 @@ export const Vereador = () => {
                 role="button"
                 tabIndex={0}
                 aria-label="Ampliar foto"
-                onClick={(event) =>
-                  openLightbox(src, event.currentTarget)
-                }
+                onClick={(event) => openLightbox(src, event.currentTarget)}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
