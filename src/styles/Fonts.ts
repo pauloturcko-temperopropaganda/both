@@ -2,25 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 export const Fonts = createGlobalStyle`
   @font-face {
-    font-family: 'Basic Sans';
-    src: url('/fonts/basic-sans/BasicSans-Regular.woff2') format('woff2');
+    font-family: 'Basic';
+    src: url('/fonts/basic/Basic-Regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Basic Sans';
-    src: url('/fonts/basic-sans/BasicSans-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Basic Sans';
-    src: url('/fonts/basic-sans/BasicSans-Bold.woff2') format('woff2');
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }

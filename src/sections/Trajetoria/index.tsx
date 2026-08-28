@@ -12,8 +12,6 @@ import {
   TrajetoriaWrapper,
 } from "./styles";
 
-// Each letter uses a different Tusker Grotesk cut on purpose (per design) —
-// tweak the `family` per index below to fine-tune the look.
 const titleLetters: {
   char: string;
   family: keyof typeof theme.fonts.tusker;

@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  /* ===== CSS Reset Completo ===== */
-
-  /* Box sizing */
   *,
   *::before,
   *::after {
@@ -12,7 +9,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  /* Reset de documento */
   html {
     font-size: 100%;
     -webkit-text-size-adjust: 100%;
@@ -34,7 +30,6 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
   }
 
-  /* Reset de tipografia */
   h1, h2, h3, h4, h5, h6 {
     font-size: inherit;
     font-weight: inherit;
@@ -49,26 +44,22 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
 
-  /* Reset de listas */
   ul, ol, li {
     list-style: none;
   }
 
-  /* Reset de links */
   a {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
   }
 
-  /* Reset de imagens e media */
   img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
     height: auto;
   }
 
-  /* Reset de formulários */
   input, button, textarea, select {
     font: inherit;
     color: inherit;
@@ -90,7 +81,6 @@ export const GlobalStyles = createGlobalStyle`
     resize: none;
   }
 
-  /* Reset de tabelas */
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -101,14 +91,12 @@ export const GlobalStyles = createGlobalStyle`
     text-align: left;
   }
 
-  /* Reset de elementos semânticos */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav,
   section, summary {
     display: block;
   }
 
-  /* Reset de citações */
   blockquote, q {
     quotes: none;
   }
@@ -119,27 +107,23 @@ export const GlobalStyles = createGlobalStyle`
     content: none;
   }
 
-  /* Reset de fieldset */
   fieldset {
     border: none;
     padding: 0;
     margin: 0;
   }
 
-  /* Reset de hr */
   hr {
     border: none;
     border-top: 1px solid #ccc;
     margin: 0;
   }
 
-  /* Acessibilidade - foco visível */
   :focus-visible {
     outline: 2px solid #4A90D9;
     outline-offset: 2px;
   }
 
-  /* Remove animações para quem prefere */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -151,7 +135,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  /* Root do React */
   #root {
     min-height: 100vh;
     display: flex;
