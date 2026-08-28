@@ -19,6 +19,7 @@ export const GlobalStyles = createGlobalStyle`
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -30,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.basicSans.family};
     color: ${({ theme }) => theme.colors.blue};
     background-color: ${({ theme }) => theme.colors.white};
+    overflow-x: hidden;
   }
 
   /* Reset de tipografia */
