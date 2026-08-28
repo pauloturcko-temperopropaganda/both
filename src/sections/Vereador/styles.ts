@@ -31,7 +31,13 @@ export const Content = styled.div`
   }
 `;
 
-export const Title = styled.p`
+export const TitleRow = styled.div`
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+`;
+
+export const Title = styled.h2`
   font-size: 56px;
   line-height: 1;
   color: ${({ theme }) => theme.colors.blue};
@@ -53,6 +59,29 @@ export const Title = styled.p`
 
 export const TitleLetter = styled.span<{ $family: string }>`
   font-family: ${({ $family }) => $family};
+`;
+
+export const Selo = styled.img`
+  position: absolute;
+  top: 45%;
+  left: 100%;
+  transform: translate(-65%, -50%);
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 76px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 58px;
+    transform: translate(-30%, -46%);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 48px;
+  }
 `;
 
 export const InfoBox = styled.div`

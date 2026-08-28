@@ -41,7 +41,7 @@ const highlights = [
 
 export const Trajetoria = () => {
   return (
-    <TrajetoriaWrapper>
+    <TrajetoriaWrapper id="trajetoria">
       <Content>
         <Title>
           {titleLetters.map(({ char, family }, index) => (
