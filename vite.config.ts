@@ -3,6 +3,6 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/marcos-both",
+  base: "/marcos-both/",
   plugins: [react()],
 });
