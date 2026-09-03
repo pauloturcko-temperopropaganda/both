@@ -1,7 +1,8 @@
+import aminLogo from "../../assets/banner/amin_logo.webp";
 import background from "../../assets/banner/background.webp";
 import bannerMobile from "../../assets/banner/banner_mobile.webp";
 import joaoRodriguesLogo from "../../assets/banner/joao_rodrigues_logo.svg";
-import logoPartido from "../../assets/banner/logo_partido.svg";
+import lunelliLogo from "../../assets/banner/lunelli_logo.webp";
 import marcosBoth from "../../assets/banner/marcos_both.webp";
 import marcosBothLogo from "../../assets/banner/marcos_both_logo.webp";
 import meioOeste from "../../assets/banner/meio_oeste.webp";
@@ -46,7 +47,8 @@ export const Banner = () => {
             src={joaoRodriguesLogo}
             alt="João Rodrigues 55 - Governador, Chiodini"
           />
-          <img src={logoPartido} alt="MDB Santa Catarina" />
+          <img src={lunelliLogo} alt="Lunelli 155 - Senador" />
+          <img src={aminLogo} alt="Amin 111 - Senador" />
         </BottomRight>
       </BannerWrapper>
 
