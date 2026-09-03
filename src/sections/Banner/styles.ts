@@ -77,20 +77,24 @@ export const BottomRight = styled.div`
   position: absolute;
   right: ${marginX};
   bottom: 4.5%;
-  width: 12.81%;
+  width: 19%;
   display: flex;
   align-items: center;
-  gap: 6.5%;
+  gap: 4%;
 
   img {
     height: auto;
   }
 
-  img:first-child {
-    width: 51.22%;
+  img:nth-child(1) {
+    width: 32%;
   }
 
-  img:last-child {
-    width: 42.28%;
+  img:nth-child(2) {
+    width: 31.5%;
+  }
+
+  img:nth-child(3) {
+    width: 28.5%;
   }
 `;
