@@ -1,6 +1,5 @@
 import aminLogo from "../../assets/banner/amin_logo.webp";
 import background from "../../assets/banner/background.webp";
-import bannerMobile from "../../assets/banner/banner_mobile.webp";
 import joaoRodriguesLogo from "../../assets/banner/joao_rodrigues_logo.svg";
 import lunelliLogo from "../../assets/banner/lunelli_logo.webp";
 import marcosBoth from "../../assets/banner/marcos_both.webp";
@@ -12,7 +11,12 @@ import {
   BottomLeft,
   BottomRight,
   LogoBlock,
-  MobileBannerImg,
+  MobileBannerWrapper,
+  MobileBottomLeft,
+  MobileCoalition,
+  MobileLogoBlock,
+  MobilePhotoImg,
+  MobileTextBlock,
   PhotoImg,
   TextBlock,
   VisuallyHidden,
@@ -52,11 +56,35 @@ export const Banner = () => {
         </BottomRight>
       </BannerWrapper>
 
-      <MobileBannerImg
-        src={bannerMobile}
-        alt="15115 - Marcos Both, Deputado Estadual - Por todo o Meio-Oeste, por toda Santa Catarina"
-        fetchPriority="high"
-      />
+      <MobileBannerWrapper $bg={background}>
+        <MobileTextBlock
+          src={meioOeste}
+          alt="Por todo o Meio-Oeste, por toda Santa Catarina"
+        />
+        <MobileLogoBlock
+          src={marcosBothLogo}
+          alt="15115 - Marcos Both, Deputado Estadual"
+        />
+        <MobilePhotoImg
+          src={marcosBoth}
+          alt="Marcos Both"
+          fetchPriority="high"
+        />
+
+        <MobileCoalition>
+          <img
+            src={joaoRodriguesLogo}
+            alt="João Rodrigues 55 - Governador, Chiodini"
+          />
+          <img src={lunelliLogo} alt="Lunelli 155 - Senador" />
+          <img src={aminLogo} alt="Amin 111 - Senador" />
+        </MobileCoalition>
+
+        <MobileBottomLeft
+          src={propagandaEleitoral}
+          alt="Propaganda eleitoral | CNPJ Candidato: 68.461.713/0001-96"
+        />
+      </MobileBannerWrapper>
     </>
   );
 };

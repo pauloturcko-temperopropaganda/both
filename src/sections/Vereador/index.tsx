@@ -150,7 +150,6 @@ export const Vereador = () => {
               <ListItem key={text}>{text}</ListItem>
             ))}
           </List>
-
           <List>
             {previdencia.map((text) => (
               <ListItem key={text}>{text}</ListItem>

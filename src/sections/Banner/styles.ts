@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const marginX = "13.02%";
+const mobileMarginX = "10.9%";
 
 export const BannerWrapper = styled.section<{ $bg: string }>`
   position: relative;
@@ -28,14 +29,91 @@ export const VisuallyHidden = styled.h1`
   border: 0;
 `;
 
-export const MobileBannerImg = styled.img`
+export const MobileBannerWrapper = styled.section<{ $bg: string }>`
   display: none;
+  position: relative;
   width: 100%;
-  height: auto;
+  aspect-ratio: 1080 / 1350;
+  background-image: url(${({ $bg }) => $bg});
+  background-size: cover;
+  background-position: bottom center;
+  overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: block;
   }
+`;
+
+export const MobileTextBlock = styled.img`
+  position: absolute;
+  left: ${mobileMarginX};
+  top: 10%;
+  width: 33%;
+  height: auto;
+  z-index: 2;
+`;
+
+export const MobileLogoBlock = styled.img`
+  position: absolute;
+  left: ${mobileMarginX};
+  top: 42%;
+  width: 33%;
+  height: auto;
+  z-index: 2;
+`;
+
+export const MobilePhotoImg = styled.img`
+  position: absolute;
+  right: -10%;
+  bottom: 2.6%;
+  width: 85%;
+  height: auto;
+  z-index: 1;
+`;
+
+/* Larguras calculadas para que os três logos fiquem com a mesma altura,
+   já que cada arquivo tem uma proporção diferente. */
+export const MobileCoalition = styled.div`
+  position: absolute;
+  left: ${mobileMarginX};
+  bottom: 8.5%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+
+  img {
+    height: auto;
+  }
+
+  /* joao_rodrigues (2.824) */
+  img:nth-child(1) {
+    width: 100%;
+  }
+
+  /* lunelli (2.792) */
+  img:nth-child(2) {
+    width: 98.9%;
+  }
+
+  /* amin (2.506) */
+  img:nth-child(3) {
+    width: 88.7%;
+  }
+
+  img + img {
+    margin-top: 4%;
+  }
+`;
+
+export const MobileBottomLeft = styled.img`
+  position: absolute;
+  left: ${mobileMarginX};
+  bottom: 3.5%;
+  width: 40%;
+  height: auto;
+  z-index: 2;
 `;
 
 export const TextBlock = styled.img`
